@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="terms-section">
+  <h1>📜 Terms & Conditions for PG Owners</h1>
+  <p>By registering your PG on our platform, you agree to the following terms:</p>
+
+  <h2>1. Accuracy of Information</h2>
+  <ul>
+    <li>You must provide accurate and truthful information about your PG.</li>
+    <li>Photos, pricing, and amenities must reflect the actual property.</li>
+    <li>You agree to update your listing as needed.</li>
+  </ul>
+
+  <h2>2. Prohibited Listings</h2>
+  <ul>
+    <li>No fake, misleading, or duplicate listings.</li>
+    <li>Do not post PGs you don't manage or own directly.</li>
+    <li>Do not upload copyrighted or stolen photos.</li>
+  </ul>
+
+  <h2>3. Legal Compliance</h2>
+  <ul>
+    <li>You are responsible for complying with all local housing and rental laws.</li>
+    <li>Police verification of tenants must be completed if required in your area.</li>
+    <li>Any required licenses or permissions must be obtained by you.</li>
+  </ul>
+
+  <h2>4. Privacy</h2>
+  <ul>
+    <li>Your contact info will be visible to potential tenants.</li>
+    <li>We will not misuse or sell your personal data.</li>
+  </ul>
+
+  <h2>5. Platform Usage</h2>
+  <ul>
+    <li>We act only as a connection platform between PG owners and tenants.</li>
+    <li>We are not responsible for payment, damages, or tenant behavior.</li>
+    <li>Your listing may be suspended for violations or repeated complaints.</li>
+  </ul>
+
+  <h2>6. Communication</h2>
+  <ul>
+    <li>Tenants may contact you through our system or directly via phone/email.</li>
+  </ul>
+
+  <h2>7. Agreement</h2>
+  <p>By submitting your PG listing, you confirm that you have read and agree to these terms.</p>
+
+  <a href="{% url 'pg_register' %}" class="btn-explore">🏠 Back to PG Registration</a>
+</div>
+{% endblock %}

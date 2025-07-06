@@ -211,6 +211,36 @@
 
 
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #2c3e50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+
+    }
+
+
+
+
 
 
 
@@ -324,6 +354,59 @@
 }
 
 
+.terms-section {
+  max-width: 800px;
+  margin: 140px auto 80px;
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #0e1a2b;
+}
+
+.terms-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #4fc3f7;
+  text-align: center;
+}
+
+.terms-section h2 {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  color: #0e1a2b;
+}
+
+.terms-section p {
+  font-size: 1.1rem;
+  margin: 0.8rem 0 1rem;
+}
+
+.terms-section ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.terms-section ul li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+.terms-section .btn-explore {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #4fc3f7;
+  color: #0e1a2b;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.terms-section .btn-explore:hover {
+  background-color: #29b6f6;
+}
 
 
 
