@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import PG,RoomDetails
 from .forms import PGform
@@ -19,6 +19,20 @@ def register_here(request):
     if request == 'POST':
         form=PGform(request.POST)
         if form.is_valid():
-            
+             pg=form.save(commit=False)
+             pg.user=request.user
+             pg.save()
+             return redirect('success_page')
+    else:
+        form=PGform()
+    
+    return render(request,'pg_registration.html',{'form':form})
+
+
+
+
+
+
+
 
 

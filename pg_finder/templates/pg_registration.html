@@ -1,8 +1,21 @@
 {% extends "layout.html" %}
-{% block content %}
-<form method="post" enctype="multipart/form-data">
+
+<form method="POST" enctype="multipart/form-data" class="pg-form">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Submit</button>
+  {% for field in form %}
+    <div class="form-group">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field }}
+      {% if field.errors %}
+        <div class="error">{{ field.errors }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn-submit">Register PG</button>
 </form>
-{% endblock content %}
+
+
+
+
+
+
