@@ -3,8 +3,6 @@ from django.http import HttpResponse
 
 
 
-def hii(request):
-    return HttpResponse("hiii this is chandresh moger")
+def Homepage(request):
+    return render(request,'layout.html')
 
-def helo(request):
-    return render(request,'index.html')

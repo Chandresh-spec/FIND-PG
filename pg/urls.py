@@ -23,7 +23,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hii/',views.hii,name="hii"),
-    path('helo/',views.helo,name='helo'),
+    path('',views.Homepage,name='Homepage'),
     path('pg_finder/',include('pg_finder.urls')),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

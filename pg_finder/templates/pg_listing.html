@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block  content %}
+<!-- PG Listings Section -->
+<div class="pg-listings" id="pg-listings">
+  <h2>Paying Guest Accommodations</h2>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button class="active">All</button>
+    <button>Single</button>
+    <button>Double</button>
+    <button>Nearby</button>
+  </div>
+
+  <!-- PG Cards Grid -->
+  <div class="pg-grid">
+    {% for pg in pg_list %}
+      <div class="pg-card">
+  
+        <img src="{{ pg.image.url }}" alt="PG Image" />
+        <div class="pg-label">{{ pg.pg_type}}</div>
+        <h3>₹ {{ pg.rent}}/mo</h3>
+        <p>{{ pg.pg_type }}</p>
+        <p>📍 {{ pg.landmark}}</p>
+        <div class="pg-amenities">
+          {% if pg.pg_wifi %}<span>📶 Wi-Fi</span>{% endif %}
+          {% if pg.pg_ac %}<span>❄️ AC</span>{% endif %}
+          {% if pg.pg_food %}<span>🍽 Food</span>{% endif %}
+          {% if pg.pg_parking %}<span>🚗 Parking</span>{% endif %}
+        </div>
+        <a href="" class="btn-details">View Details</a>
+      </div>
+    {% endfor %}
+ </div>
+</div>
+{% endblock %}
+

@@ -22,8 +22,20 @@ class PG(models.Model):
     minimum_stay = models.PositiveIntegerField(help_text="In months")
     available_from = models.DateField()
     pg_type = models.CharField(max_length=10, choices=pgtye_choices)
+    image=models.ImageField(upload_to='pg_photos/',blank=False,null=False)
+    description=models.CharField(max_length=150,blank=True)
+    pg_wifi=models.BooleanField(default=False)
+    pg_food=models.BooleanField(default=False)
+    pg_ac=models.BooleanField(default=False)
+    pg_parking=models.BooleanField(default=False)
+    rent = models.DecimalField(max_digits=8, decimal_places=2,null=False,default=0)
+
+class RoomDetails(models.Model):
+    pg=models.ForeignKey(PG,on_delete=models.CASCADE)
+    rooms_available = models.PositiveIntegerField()
 
 
-class
-    
+
+   
+   
     

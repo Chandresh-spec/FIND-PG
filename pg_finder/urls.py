@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
    
-    path('',views.check,name="check"),
+    
+    path('',views.pg_listing,name="pg_listing")
    
 ]

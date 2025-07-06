@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PG Finder Navbar</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🏠 PG Finder</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Premium</a>
+      <a href="#">Nearby</a>
+      <a href="#">Contact</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search PGs...">
+      <button class="btn-login">Login</button>
+    </div>
+  </nav>
+
+  {% block content %}
+  <div class="hero-section">
+    <h1>Find Your Perfect PG in Seconds</h1>
+    <p>Explore verified PGs with comfort, safety, and convenience.</p>
+    <div class="hero-buttons">
+      <a href="{% url 'pg_listing' %}" class="btn-explore">🔍 Find PGs</a>
+      <a href="#" class="btn-owner">🏠 List Your PG</a>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+</html>
