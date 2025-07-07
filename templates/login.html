@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="register-container">
+  <h2>Create an Account</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-wrapper">
+      {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn-register">Register</button>
+  </form>
+</div>
+{% endblock %}

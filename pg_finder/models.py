@@ -1,5 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -9,6 +10,7 @@ class PG(models.Model):
         ('GIRLS','Girls'),
         ('COED','co-ed'),
     ]
+    user=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
     pg_name=models.CharField(max_length=50)
     owner_name=models.CharField(max_length=100)
     contact = PhoneNumberField("Contact Number", region='IN', null=False, blank=False)
