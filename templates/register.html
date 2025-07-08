@@ -1,9 +1,30 @@
-{% extends "layout.html" %}
 
-{% block content%}
-<form method="post">
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<div class="auth-container">
+  <h2>Login to Your Account</h2>
+
+  <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
-    <button>register</button>
-</form>
-{% endblock  %}
+    <div class="form-wrapper">
+      {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn-auth">Register</button>
+  </form>
+
+  <div class="auth-footer">
+    have an account?
+    <a href="{% url 'login' %}">Register here</a>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

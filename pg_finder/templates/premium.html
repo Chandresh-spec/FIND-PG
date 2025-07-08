@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% for item in items %}
+{% if item.pg_wifi and item.pg_food and item.pg_ac and item.pg_parking and item.rent %}
+<div class="pg-listings" id="pg-listings">
+  <h2>Paying Guest Accommodations</h2>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button class="active">All</button>
+    <button>Single</button>
+    <button>Double</button>
+    <button>Nearby</button>
+  </div>
+
+  <!-- PG Cards Grid -->
+  <div class="pg-grid">
+      <div class="pg-card">
+  
+        <img src="{{ item.image.url }}" alt="PG Image" />
+        <div class="pg-label">{{ item.pg_type}}</div>
+        <h3>₹ {{ item.rent}}/mo</h3>
+        <p>{{ item.pg_type }}</p>
+        <p>📍 {{ item.landmark}}</p>
+        <div class="pg-amenities">
+          {% if item.pg_wifi %}<span>📶 Wi-Fi</span>{% endif %}
+          {% if item.pg_ac %}<span>❄️ AC</span>{% endif %}
+          {% if item.pg_food %}<span>🍽 Food</span>{% endif %}
+          {% if item.pg_parking %}<span>🚗 Parking</span>{% endif %}
+        </div>
+        <a href="" class="btn-details">View Details</a>
+      </div>
+ </div>
+</div>
+
+{% endif %}
+
+{% endfor %}
+{% endblock  %}
+
+
+
+
+
+
