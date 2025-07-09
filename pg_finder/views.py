@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from .models import PG,RoomDetails
 from .forms import PGform,UserRegistrationFrom
@@ -95,6 +95,15 @@ def logout_view(request):
 def premium(request):
     items=PG.objects.all()
     return render(request,'premium.html',{'items':items})
+
+
+
+def detailspage(request,pk):
+    pg=get_object_or_404(PG,pk=pk)
+    return render(request,'detailpage.html',{'pg':pg})
+
+
+
 
 
 

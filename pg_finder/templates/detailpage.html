@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 1000px; margin: auto; padding: 20px; font-family: 'Segoe UI', sans-serif;">
+  
+  <!-- PG IMAGE -->
+  <div style="position: relative; border-radius: 12px; overflow: hidden;">
+    <img src="{{ pg.image.url }}" alt="PG Image" style="width: 100%; height: auto; border-radius: 12px;">
+    <span style="position: absolute; top: 20px; left: 20px; background-color: gold; color: black; padding: 6px 12px; border-radius: 6px; font-weight: bold;">
+      PREMIUM LISTING
+    </span>
+  </div>
+
+  <!-- PG NAME & TYPE -->
+  <h1 style="margin-top: 20px; font-size: 2rem;">{{ pg.pg_name}}</h1>
+  <p style="color: #666; font-size: 1.1rem;"><strong>Type:</strong> {{ pg.pg_type }}</p>
+
+  <!-- RENT & AVAILABILITY -->
+  <div style="margin: 20px 0; background: #f7f7f7; padding: 15px; border-radius: 10px;">
+    <h2 style="color: green;">₹{{ pg.rent }} / month</h2>
+    {% if rooms %}
+      <p style="color: red; font-weight: bold;">Only {{ rooms.rooms_available }} room(s) left!</p>
+    {% endif %}
+  </div>
+
+  <!-- OWNER DETAILS -->
+  <div style="margin-bottom: 20px;">
+    <p><strong>Owner:</strong> {{ pg.owner_name }}</p>
+    <p><strong>Contact:</strong> {{ pg.contact }}</p>
+    <p><strong>Email:</strong> {{ pg.email }}</p>
+  </div>
+
+  <!-- ADDRESS & LANDMARK -->
+  <div>
+    <p><strong>Address:</strong> {{ pg.full_address }}</p>
+    <p><strong>Landmark:</strong> {{ pg.landmark }}</p>
+    {% if pg.google_map_link %}
+      <p><a href="{{ pg.google_map_link }}" target="_blank" style="color: blue;">📍 View on Google Maps</a></p>
+    {% endif %}
+  </div>
+
+  <!-- TIME DETAILS -->
+  <div style="margin-top: 15px;">
+    <p><strong>Check-In:</strong> {{ pg.check_in_time }}</p>
+    <p><strong>Check-Out:</strong> {{ pg.check_out_time }}</p>
+    {% if pg.gate_closing_time %}
+      <p><strong>Gate Closing Time:</strong> {{ pg.gate_closing_time }}</p>
+    {% endif %}
+    <p><strong>Minimum Stay:</strong> {{ pg.minimum_stay }} months</p>
+    <p><strong>Available From:</strong> {{ pg.available_from }}</p>
+  </div>
+
+  <!-- FACILITIES -->
+  <div style="margin: 20px 0;">
+    <h3>Facilities</h3>
+    <ul style="list-style: none; padding: 0;">
+      <li>📶 WiFi: {{ pg.pg_wifi|yesno:"Yes,No" }}</li>
+      <li>🍱 Food: {{ pg.pg_food|yesno:"Yes,No" }}</li>
+      <li>❄️ AC: {{ pg.pg_ac|yesno:"Yes,No" }}</li>
+      <li>🚗 Parking: {{ pg.pg_parking|yesno:"Yes,No" }}</li>
+    </ul>
+  </div>
+
+  <!-- DESCRIPTION -->
+  {% if pg.description %}
+    <div style="background: #f9f9f9; padding: 10px 15px; border-left: 5px solid gold; margin-bottom: 20px;">
+      <p>{{ pg.description }}</p>
+    </div>
+  {% endif %}
+
+  <!-- ACTION BUTTONS -->
+  <div style="display: flex; gap: 15px; margin-top: 25px;">
+    <a href="#" style="background: gold; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">Book Now</a>
+    <a href="tel:{{ pg.contact }}" style="background: #444; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none;">Contact Owner</a>
+  </div>
+</div>
+{% endblock %}

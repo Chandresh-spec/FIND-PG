@@ -28,7 +28,7 @@
           {% if pg.pg_food %}<span>🍽 Food</span>{% endif %}
           {% if pg.pg_parking %}<span>🚗 Parking</span>{% endif %}
         </div>
-        <a href="" class="btn-details">View Details</a>
+        <a href="{% url 'detailspage' pg.pk %}" class="btn-details">View Details</a>
       </div>
     {% endfor %}
  </div>
