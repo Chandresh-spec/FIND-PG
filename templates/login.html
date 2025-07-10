@@ -2,10 +2,8 @@
 {% load static %}
 
 {% block content %}
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <div class="auth-container">
   <h2>Login to Your Account</h2>
-
   <form method="POST">
     {% csrf_token %}
     <div class="form-wrapper">
@@ -15,17 +13,8 @@
   </form>
 
   <div class="auth-footer">
-    Don’t have an account?
-    <a href="{% url 'register' %}">Register here</a>
+    Don’t have an account? <a href="{% url 'register' %}">Register here</a>
   </div>
 </div>
+
 {% endblock %}
-
-
-
-
-
-
-
-
-

@@ -19,13 +19,13 @@ def pg_listing(request):
 def pg_register(request):
     return render(request,'register_pg.html')
 
-def success_page(request):
-   return redirect('success_page')
+def success_view(request):
+   return render(request,'success_page.html')
 
 
 def register_here(request):
-    if request == 'POST':
-        form=PGform(request.POST)
+    if request.method== 'POST':
+        form=PGform(request.POST,request.FILES)
         if form.is_valid():
              pg=form.save(commit=False)
              pg.user=request.user
@@ -33,12 +33,11 @@ def register_here(request):
              return redirect('success_page')
     else:
         form=PGform()
-    
-    return render(request,'pg_registration.html',{'form':form})
+        return render(request,'pg_registration.html',{'form':form})
 
 
 def register_view(request):
-    if request=='POST':
+    if request.method=='POST':
         form=UserRegistrationFrom(request.POST)
         if form.is_valid():
             user=form.save(commit=False)
@@ -69,12 +68,14 @@ def login_view(request):
 
             if user is not None:
                 login(request, user)
-                messages.success(request, f"Welcome back, {username}!")
+                # messages.success(request, f"Welcome back, {username}!")
                 return redirect("Homepage")
-            else:
-                messages.error(request, "Invalid username or password")
+            # else:
+                # messages.error(request, "Invalid username or password")
         # Even if invalid, re-render login with errors
-        return render(request, 'login.html', {"form": form})
+        else:
+        #    messages.error(request, "Invalid username or password")
+           return render(request, 'login.html', {"form": form})
 
     else:
         # For GET request — show empty login form
@@ -86,7 +87,7 @@ def login_view(request):
  
 def logout_view(request):
     logout(request)
-    messages.success(request,"you have been logged out.")
+    # messages.success(request,"you have been logged out.")
     return redirect('login')
 
 
@@ -100,7 +101,46 @@ def premium(request):
 
 def detailspage(request,pk):
     pg=get_object_or_404(PG,pk=pk)
-    return render(request,'detailpage.html',{'pg':pg})
+    rooms = RoomDetails.objects.filter(pg=pg).first()
+    return render(request,'detailpage.html',{'pg':pg,'rooms':rooms})
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
