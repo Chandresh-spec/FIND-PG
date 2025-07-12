@@ -31,6 +31,8 @@ def register_here(request):
              pg.user=request.user
              pg.save()
              return redirect('success_page')
+        else:
+            return render(request,'pg_registration.html',{'form':form})
     else:
         form=PGform()
         return render(request,'pg_registration.html',{'form':form})
@@ -93,9 +95,10 @@ def logout_view(request):
 
 
 
-def premium(request):
+def premium(request,pk):
+    pg=get_object_or_404(PG,pk=pk)
     items=PG.objects.all()
-    return render(request,'premium.html',{'items':items})
+    return render(request,'premium.html',{'items':items,'pg':pg})
 
 
 
