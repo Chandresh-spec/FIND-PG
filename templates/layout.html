@@ -11,14 +11,18 @@
     <div class="logo">🏠 PG Finder</div>
     <div class="nav-links">
       <a href="{% url 'Homepage'%}">Home</a>
-      <a href="{% url 'premium' %}">Premium</a>
+      <a href="{% url 'premium_pg' %}">Premium</a>
       <a href="#">Nearby</a>
       <a href="#">Contact</a>
       <a href="#">Support</a>
     </div>
     <div class="search-bar">
-      <input type="text" placeholder="Search PGs...">
+      <form  method ="GET" action="{% url 'search_pg' %}">
+      <input type="text" name='q' placeholder="Search PGs..." value={{request.GET.q}}>
+      <button type="submit">search</button>
+      </form>
       <div class = 'login'>
+
       {% if user.is_authenticated %}
       <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}

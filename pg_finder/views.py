@@ -6,6 +6,7 @@ from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from django.db.models import Q
 # Create your views here.
 
 
@@ -95,10 +96,10 @@ def logout_view(request):
 
 
 
-def premium(request,pk):
-    pg=get_object_or_404(PG,pk=pk)
+def premium_pg(request):
+    
     items=PG.objects.all()
-    return render(request,'premium.html',{'items':items,'pg':pg})
+    return render(request,'premium.html',{'items':items})
 
 
 
@@ -110,6 +111,26 @@ def detailspage(request,pk):
 
 
 
+def search_pg(request):
+    query=request.GET.get('q')
+    if query:
+        pgs=PG.objects.filter(Q(full_address__icontains=query)|
+                          Q(landmark__icontains=query)|
+                          Q(rent__icontains=query)).distinct()
+        return render(request,'search_pg.html',{"pgs":pgs})
+    
+    else:
+        return render(request,'search_pg.html',{'query':query})
+    
+
+    
+
+
+
+
+
+ 
+ 
 
 
 

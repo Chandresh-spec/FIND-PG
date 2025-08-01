@@ -4,6 +4,10 @@ from .models import PG, RoomDetails
 @admin.register(PG)
 class PGAdmin(admin.ModelAdmin):
     list_display = ('pg_name', 'owner_name', 'pg_type', 'available_from')
+    list_filter=('pg_name','owner_name')
+    search_fields=['pg_name']
+    ordering=('pg_name',)
+
 
 
 

@@ -12,9 +12,11 @@ urlpatterns = [
     path('register/',views.register_view,name='register'),
     path('login/',views.login_view,name='login'),
     path('logout/',views.logout_view,name='logout'),
-    path('premium/',views.premium,name='premium'),
+    path('premium_pg/',views.premium_pg,name='premium_pg'),
     path('pg/<int:pk>/',views.detailspage,name='detailspage'),
-    
+    path('search_pg/',views.search_pg,name='search_pg')
+
+
 
    
 ]
