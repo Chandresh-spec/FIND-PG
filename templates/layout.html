@@ -17,24 +17,25 @@
       <a href="#">Support</a>
     </div>
     <div class="search-bar">
-      <form  method ="GET" action="{% url 'search_pg' %}">
-      <input type="text" name='q' placeholder="Search PGs..." value={{request.GET.q}}>
-      <button type="submit">search</button>
+      <form method="GET" action="{% url 'search_pg' %}" class="search-form">
+        <input type="text" name="q" placeholder="Search PGs..." value="{{ request.GET.q }}">
+        <button type="submit" class="btn-search">🔍 Search</button>
       </form>
-      <div class = 'login'>
-
-      {% if user.is_authenticated %}
+        <div class="auth-buttons">
+    {% if user.is_authenticated %}
       <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type=submit >Logout</button>
-
+        <button type="submit" class="btn-auth-navbar logout-btn">Logout</button>
       </form>
-      {% else %}
-      <a href="{% url 'login' %}">Login </a>
-      {% endif %}
-      </div>
-    </div>
-  </nav>
+    {% else %}
+      <a href="{% url 'login' %}" class="btn-auth-navbar login-btn">Login</a>
+    {% endif %}
+  </div>
+</div>
+
+    
+
+  
 
   {% block content %}
   <div class="hero-section">

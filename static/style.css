@@ -752,6 +752,77 @@
 
 
 
+/* --- Search Bar Container --- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+/* --- Search Input --- */
+.search-form input[type="text"] {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 200px;
+  background-color: #f0f0f0;
+}
+
+/* --- Search Button --- */
+.btn-search {
+  padding: 0.5rem 1rem;
+  background-color: #4fc3f7;
+  color: #0e1a2b;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+  background-color: #29b6f6;
+}
+
+/* --- Auth Buttons Container (Login & Logout) --- */
+.auth-buttons {
+  margin-left: 1rem;
+}
+
+/* --- Common Style for Login & Logout Buttons --- */
+.btn-auth-navbar {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+/* --- Login Button --- */
+.login-btn {
+  background-color: #4fc3f7;
+}
+
+.login-btn:hover {
+  background-color: #29b6f6;
+}
+
+/* --- Logout Button --- */
+.logout-btn {
+  background-color: #ef5350;
+}
+
+.logout-btn:hover {
+  background-color: #e53935;
+}
 
 
 
